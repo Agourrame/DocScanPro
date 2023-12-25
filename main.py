@@ -20,7 +20,7 @@ def upload_form():
 @app.route('/', methods=['POST'])
 def upload_image():
 	if 'file' not in request.files:
-		flash('No file part')
+		flash('No file part ...')
 		return redirect(request.url)
 	file = request.files['file']
 	if file.filename == '':
