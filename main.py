@@ -8,6 +8,8 @@ from PIL import Image
 import base64
 from Helpers import *
 
+app = Flask(__name__, static_folder='templates/assets')
+
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 def allowed_file(filename):
@@ -68,4 +70,9 @@ def upload_image():
 		return redirect(request.url)
 
 if __name__ == "__main__":
+    # Quick test configuration. Please use proper Flask configuration options
+    # in production settings, and use a separate file or environment variables
+    # to manage the secret key!
+    app.secret_key = 'super secret key'
+    app.config['SESSION_TYPE'] = 'filesystem'
     app.run(debug=True)
